@@ -18,6 +18,7 @@ Hooks we are looking in this series are:
 + Data Fetch using useEffect.
 + useContext - Context API
 + useReducer - reducer
++ useCallback - perfomance optimizer
 
 #### useEffect:
 > The useEffect hook is used to add side effects to the functional components. It is a replacement of **componentWillMount**, **componentDidUpdate** and **componentWillUnmount** of the class-based components.
@@ -40,4 +41,9 @@ useReducer(reducer, initialState);
 + When we have to use useState and useReducer?
 
 
-
+#### useCallback Hook?
++ useCallback is a hook that will return a memoized version of the callback function that only changes if one of the depencies has changed.
++ To prevent unnecessary renders.
++ useCallback Hook only renders the component when their is any change in its props and state.
++ If we have around 20+ child components and changing 1 component value renders all components is a serious optimization problem.
++ To handle this case we used **useCallback** Hook.
