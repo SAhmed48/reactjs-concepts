@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../App';
+import { UserContext } from '../containers/Concepts/concepts';
 
 function ComponentA() {
     const user = useContext(UserContext);
