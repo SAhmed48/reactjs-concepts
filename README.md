@@ -1,21 +1,22 @@
 <center> <h1>React Routing</h1> </center>
 
-- To add multiple page functionality in the SPA (single page application), we use react-router and react-router-dom packages.
-- Install packages
+- To add multiple page functionality in the SPA (single page application), we will install react-router and react-router-dom packages.
+- Packages installation
 
 ```
 npm i --save react-router react-router-dom
 ```
 
-- Wrap the App.js component in the **BrowserRouter** from 'react-router-dom' to enable routing functionality in the app.
+- Import the **BrowserRouter** from the 'react-router-dom'.
+- Wrap the App.js component in the **BrowserRouter** to enable routing functionality in the app.
 
 ###### Link in the Router
 
-- When you want stop single page application to reload everytime when click on new route or link from the application we can user react-router **Link**.
+- To avoid SPA to reload the webpage while routing from one page to the other use react-router **Link**.
 
-- Using **href='/anypath'** in the anchor tag for the links always reloads the page. To avoid this behaviour we can use react-router domain **Link**.
-
-- React rerendering the parts of the page using this approach and the browser page spinner does not load this time.
+- Using **href='/anypath'** in the anchor tag for the links always reloads the page.
+- To avoid this behavior use the react-router domain **Link**.
+- React re-rendering the parts of the page using this approach and the browser page spinner does not load this time.
 
 ```
 <Link to='/path' />
@@ -28,8 +29,8 @@ npm i --save react-router react-router-dom
 }}/>
 ```
 
-- The **to** parameter in the Link is always using absolute path by default, means our root domain is appended in the first then path.
-- To change this behaviour in the relative path, we will do this way:
+- The **to** parameter in the Link is always used absolute path by default, which means the root domain is appended in the path first then the new route path.
+- To change this behavior in the relative path, pass the object:
 
 ```
 // Pass object in the route
@@ -40,7 +41,7 @@ npm i --save react-router react-router-dom
 
 ###### Props in the router
 
-- The router props contains three important things:
+- The react-router props contains three important things:
 
 ```
 history: // contains the goback, goForward, push, pop etc functionalities.
@@ -49,9 +50,10 @@ match: // contains the isExact flag, current url, current url params
 
 ```
 
-###### Active Route Highlight
+###### Highlight active route
 
-- Sometimes we want to add the styling to the active route by highlighting it or by changing its colour. Do this in the react-router we can use **NavLink** instead of **Link**
+- Sometimes we want to add the styling to the active route by highlighting it or by changing its color. Use **NavLink** instead of **Link**
+  in the react-router to achieve this functionality.
 
 ```
 <NavLink
@@ -64,7 +66,8 @@ activeStyle={{ color: 'greem'}} // do inline styling if you want.
 
 ###### Switch
 
-- Switch tells the router to load only one route at a time which appears first in the top-down approach.
+- Switch tells the react-router to load only one route at a time which appears first. It works in the top-down approach.
+
   -- Order matters in the switch.
 
 ```
@@ -75,7 +78,7 @@ activeStyle={{ color: 'greem'}} // do inline styling if you want.
 </switch>
 ```
 
-###### Route from the program.
+###### Route programmatically.
 
 ```
 this.props.history.push({'pathname': '/new-post' });
@@ -86,7 +89,7 @@ this.props.history.replace({ '/new-post' });
 
 ###### Redirect
 
-- In some cases, you want to redirect the route to the separate route so you can use react-router-dom built in component **Redirect**.
+- In some cases, need to redirect the route to a separate route click. So using **Redirect** helps us to achieve this.
 
 ```
 import {Redirect} from 'react-router-dom';
@@ -112,7 +115,7 @@ render(){
 
 ###### withRouter higher order function.
 
-- Sometimes we need router props in the child components to perform some functionality. So, to access router props in the child component using simple and common way is to drill down from the parent component in the child component.
+- Sometimes we need router props in the child components to perform some functionality. So, to access router props in the child component using a simple and common way is to drill down from the parent component in the child component.
 - Second way is to direct wrap the child component with the HOC (withRouter)
 
 ```
@@ -160,7 +163,7 @@ function App() {
 }
 ```
 
-- You can set application basepath on creating application build.
+- You can set an application basepath on creating an application build.
 - You can serve multiple builds using this approach.
 
 ```
@@ -182,7 +185,7 @@ www.example.com/my-app-2
 
 #### What are hooks in reactjs?
 
-Hooks are a new feature introduced by react in version **16.8** which allows you to use react features without having class-based components.
+Hooks are a new feature introduced by react in version **16.8** which allows using react features without having class-based components.
 Hooks cannot be used in class-based components.
 
 #### Rules of Hooks:
@@ -200,7 +203,7 @@ Hooks we are looking in this series are:
 - Data Fetch using useEffect.
 - useContext - Context API
 - useReducer - reducer
-- useCallback - perfomance optimizer
+- useCallback - performance optimizer
 - useMemo - Change only updated value.
 - useRef = access dom element.
 - custom Hook.
@@ -215,7 +218,7 @@ Hooks we are looking in this series are:
 
 #### What is useReducer?
 
-- It is used for the state management.
+- It is used for state management.
 - It is an alternative of useState.
 - Take two values. reducer function and initial values.
 
@@ -232,16 +235,16 @@ useReducer(reducer, initialState);
 
 #### useCallback Hook?
 
-- useCallback is a hook that will return a memoized version of the callback function that only changes if one of the depencies has changed.
+- useCallback is a hook that will return a memoized version of the callback function that only changes if one of the dependencies has changed.
 - To prevent unnecessary renders.
-- useCallback Hook only renders the component when their is any change in its props and state.
+- useCallback Hook only renders the component when there is any change in its props and state.
 - If we have around 20+ child components and changing 1 component value renders all components is a serious optimization problem.
 - To handle this case we used **useCallback** Hook.
 
 #### useRef Hook:
 
 - Use to access the dom element in the functional component.
-- Create a container to hold mutable parameter in the functional component.
+- Create a container to hold mutable parameters in the functional component.
 
 #### Custom Hook
 
